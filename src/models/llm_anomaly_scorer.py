@@ -7,9 +7,28 @@ from typing import List
 import numpy as np
 from tqdm import tqdm
 
+import torch
+
+from transformers import BitsAndBytesConfig
+
+# Limit GPU memory usage to 80% of available memory
+#torch.cuda.empty_cache()  # Frees unused memory
+torch.cuda.reset_peak_memory_stats()
+
+torch.cuda.set_per_process_memory_fraction(0.8)
+
+# Free unused memory
+torch.cuda.empty_cache()
+
 from libs.llama.llama import Dialog, Llama
 from src.data.video_record import VideoRecord
 from src.utils.path_utils import find_unprocessed_videos
+
+quant_config = BitsAndBytesConfig(
+    load_in_4bit=True,  # Use 4-bit for extreme memory savings
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.float16
+)
 
 
 class LLMAnomalyScorer:
@@ -54,6 +73,8 @@ class LLMAnomalyScorer:
             tokenizer_path=self.tokenizer_path,
             max_seq_len=self.max_seq_len,
             max_batch_size=self.batch_size,
+            #dtype=torch.float16,  # Use half-precision
+            #device="cuda",
         )
 
     def _prepare_dialogs(self, captions, batch_frame_idxs, is_summary):

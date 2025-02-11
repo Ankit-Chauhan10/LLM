@@ -1,9 +1,9 @@
 #!/bin/bash
 export OMP_NUM_THREADS=8
 
-dataset_dir="YOUR_DATASET_PATH"
-llm_model_name="llama-2-13b-chat"
-batch_size=32
+dataset_dir="C:/Users/ankit/Documents/LLM/lavad/datasets"
+llm_model_name="llama-2-7b-chat"
+batch_size=4
 frame_interval=16
 index_dim=1024
 index_name="opt-6.7b-coco+opt-6.7b+flan-t5-xxl+flan-t5-xl+flan-t5-xl-coco"  # Change this to the index name you created in scripts/02_create_index.sh

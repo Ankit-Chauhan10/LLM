@@ -1,5 +1,5 @@
 #!/bin/bash
-dataset_dir="YOUR_DATASET_PATH"
+dataset_dir="C:/Users/ankit/Documents/LLM/lavad/datasets"
 
 # Set paths
 videos_dir="${dataset_dir}/videos"

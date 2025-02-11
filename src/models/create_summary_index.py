@@ -13,6 +13,7 @@ import faiss.contrib.torch_utils
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+import pdb
 
 from libs.ImageBind.imagebind import data
 from libs.ImageBind.imagebind.models.imagebind_model import ModalityType, imagebind_huge
@@ -97,6 +98,7 @@ def process_video(
 
     caption_to_frame_idxs = defaultdict(list)
     for frame_idx, caption in video_captions.items():
+        pdb.set_trace()
         caption_to_frame_idxs[caption].append(int(frame_idx))
 
     for batch_start_frame in tqdm(

@@ -1,6 +1,6 @@
 #!/bin/bash
-dataset_dir="YOUR_DATASET_PATH"
-batch_size=32
+dataset_dir="C:/Users/ankit/Documents/LLM/lavad/datasets"
+batch_size=8
 frame_interval=16
 index_dim=1024
 

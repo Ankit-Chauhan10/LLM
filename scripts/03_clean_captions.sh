@@ -1,6 +1,6 @@
 #!/bin/bash
-dataset_dir="YOUR_DATASET_PATH"
-batch_size=32
+dataset_dir="C:/Users/ankit/Documents/LLM/lavad/datasets"
+batch_size=4
 frame_interval=16
 fps=30  # Change this to the frame rate of your videos
 clip_duration=10
